@@ -32,9 +32,12 @@ resource "aws_instance" "Compute" {
 
   root_block_device {
     delete_on_termination = true
-    volume_size           = var.ec_volume_size
-    volume_type           = var.ec_Volume_type
+    volume_size           = var.ec_Volume_config.size
+    volume_type           = var.ec_Volume_config.type
   }
+  tags = merge(var.additional_tags, {
+    ManagedBy = "Tf"
+  })
 }
 
 provider "aws" {
