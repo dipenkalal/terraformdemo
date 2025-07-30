@@ -8,5 +8,5 @@ ec_Volume_config = {
 
 
 additional_tags = {
-  ValuesFrom = "terraform.tfvars"
+  ValuesFrom = "prod.terraform.tfvars"
 }

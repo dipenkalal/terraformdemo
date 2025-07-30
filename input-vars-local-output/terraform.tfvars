@@ -1,4 +1,4 @@
-ec_instance_type = "t2.micro"
+# ec_instance_type = "t2.micro"
 
 
 ec_Volume_config = {

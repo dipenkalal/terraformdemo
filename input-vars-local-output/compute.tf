@@ -1,3 +1,18 @@
+locals {
+  project       = "input-vars-local-output"
+  project_owner = "dipen"
+  cost_center   = "0001"
+  managed_by    = "Terraform"
+
+  commontags = {
+    project       = local.project
+    project_owner = local.project_owner
+    cost_center   = local.cost_center
+    managed_by    = local.managed_by
+  }
+}
+
+
 data "aws_ami" "ubuntu" {
   most_recent = true
   owners      = ["099720109477"]
@@ -35,9 +50,7 @@ resource "aws_instance" "Compute" {
     volume_size           = var.ec_Volume_config.size
     volume_type           = var.ec_Volume_config.type
   }
-  tags = merge(var.additional_tags, {
-    ManagedBy = "Tf"
-  })
+  tags = merge(local.commontags, var.additional_tags)
 }
 
 provider "aws" {
