@@ -1,6 +1,6 @@
 resource "random_id" "project_suffix" {
-    byte_length = 4
-  
+  byte_length = 4
+
 }
 
 resource "aws_s3_bucket" "project_bucket" {
